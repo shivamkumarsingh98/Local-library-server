@@ -1,0 +1,20 @@
+# Ignore all .env files in all subfolders
+.env
+**/.env
+
+# Ignore node_modules everywhere
+node_modules/
+**/node_modules/
+
+# Logs
+logs
+*.log
+
+# Temp folders
+temp/
+Public/temp/
+uploads/
+
+# Build output
+dist/
+build/
