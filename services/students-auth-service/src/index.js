@@ -43,6 +43,9 @@ app.use("/", authRoutes);
 //   }
 // );
 
+app.get("/", (req, res) => {
+  res.send("Server student auth 🚀");
+});
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 
 app.listen(PORT, () => console.log(`Auth service running on ${PORT}`));
