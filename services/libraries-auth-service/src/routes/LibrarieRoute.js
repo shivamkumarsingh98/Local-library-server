@@ -2,12 +2,19 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
 const { createLibraries } = require("../controllers/LibrariesAddControllers");
+
+// ✅ Ensure upload directory exists (Render-safe fix)
+const uploadDir = path.join(__dirname, "../Public/temp");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 // ✅ Multer setup
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./Public/temp");
+    cb(null, uploadDir); // use the ensured path
   },
   filename: (req, file, cb) => {
     const uniqueName = Date.now() + path.extname(file.originalname);

@@ -12,6 +12,7 @@ function signToken(owner) {
 // REGISTER OWNER
 exports.register = async (req, res) => {
   try {
+    console.log("req.body", req.body);
     const { name, email, mobile, password, confirmPassword } = req.body;
 
     if (!name || !email || !mobile || !password || !confirmPassword)
@@ -69,6 +70,7 @@ exports.register = async (req, res) => {
 // LOGIN OWNER (via mobile + password)
 exports.login = async (req, res) => {
   try {
+    console.log("req.body", req.body);
     const { mobile, password } = req.body;
 
     if (!mobile || !password)
