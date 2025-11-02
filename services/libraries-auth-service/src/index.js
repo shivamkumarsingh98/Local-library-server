@@ -49,4 +49,8 @@ app.use("/api", libraryRoutes);
 
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 
+app.get("/", (req, res) => {
+  res.send("Server is live 🚀");
+});
+
 app.listen(PORT, () => console.log(`Owner service running on ${PORT}`));
