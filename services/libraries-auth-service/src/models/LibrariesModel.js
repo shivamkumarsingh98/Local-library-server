@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const librarySchema = new mongoose.Schema({
   librariename: { type: String, required: true },
   city: { type: String, required: true },
+  area: {type: String, required: true},
   images: [{ type: String, required: true }], // ✅ array for multiple Cloudinary URLs
   services: [{ type: String, required: true }], // ✅ array (e.g. ['WiFi', 'AC'])
   location: { type: String, required: true },

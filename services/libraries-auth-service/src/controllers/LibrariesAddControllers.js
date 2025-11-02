@@ -7,6 +7,7 @@ const createLibraries = async (req, res) => {
     const {
       librariename,
       city,
+      area,
       location,
       services,
       time,
@@ -32,6 +33,7 @@ const createLibraries = async (req, res) => {
     if (
       !librariename ||
       !city ||
+      !area ||
       !location ||
       !services ||
       !totalseats ||
@@ -56,6 +58,7 @@ const createLibraries = async (req, res) => {
     const newLibrary = {
       librariename,
       city,
+      area,
       location,
       images: imageUrls,
       services: parsedServices,
