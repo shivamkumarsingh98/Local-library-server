@@ -1,6 +1,6 @@
 // const libraryauthRoutes = require("../../../libraries-auth-service");
 // const studentauthRoutes = require("../../../students-auth-service");
-
+require("dotenv").config();
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = (app) => {
@@ -8,7 +8,7 @@ module.exports = (app) => {
   app.use(
     "/library-auth",
     createProxyMiddleware({
-      target: "http://localhost:3004",
+      target: process.env.LIBRARY_AUTH_URL,
       changeOrigin: true,
     })
   );
@@ -17,7 +17,7 @@ module.exports = (app) => {
   app.use(
     "/student-auth",
     createProxyMiddleware({
-      target: "http://localhost:3005",
+      target: process.env.STUDENT_AUTH_URL,
       changeOrigin: true,
     })
   );

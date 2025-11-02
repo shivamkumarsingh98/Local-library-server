@@ -28,5 +28,5 @@ app.use(express.json());
 app.listen(PORT, () => console.log(`Gateway running on ${PORT}`));
 
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.send("hello gateway");
 });
